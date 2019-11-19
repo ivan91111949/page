@@ -13,21 +13,20 @@ function getData (url,callback) {
 }
 
 function showMarkup (html) {
-    document.body.innerHTML += html
+  document.body.innerHTML += html
 }
 
 function showText (text) {
-    document.body.innerHTML += `<h3> ${text}</h3>`
+  document.body.innerHTML += `<h3>${text}</h3>`
 }
-
 
 var showGallery = function (response) {
   pictures = JSON.parse(response)
   pictures.forEach(
-        picture => document.body.appendChild(document.cerateElement('img')).src = picture.ref
-    )
+     picture => document.body.appendChild(document.createElement('img')).src = picture.ref
+  )
 }
 
 getData("./user2.json",showGallery)
-getData('hello.txt', showText)
-getData('hello.html',showMarkup)
+getData("hello.txt",showText)
+getData("hello.html",showMarkup)
